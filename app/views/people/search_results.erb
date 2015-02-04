@@ -3,13 +3,12 @@
   <title>People</title>
 </head>
 <body>
-  <h1>All People</h1>
+  <h1>Search Results</h1>
   <table>
-    <% @people.each do |person| %>
+    <% @with_surname.each do |person| %>
     <tr>
       <td><%= person.first_name %></td>
       <td><%= person.last_name %></td>
-      <td><%= person.role %></td>
     </tr>
     <% end %>
   </table>
