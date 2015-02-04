@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>People</title>
+</head>
+<body>
+  <h1>All People</h1>
+  <table>
+    <% @people.each do |person| %>
+    <tr>
+      <td><%= person.first_name %></td>
+      <td><%= person.last_name %></td>
+    </tr>
+    <% end %>
+  </table>
+</body>
+</html>

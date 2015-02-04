@@ -3,7 +3,7 @@ module AddressBook
     use ConnectionPoolManagement
     register Padrino::Mailer
     register Padrino::Helpers
-
+    set :protect_from_csrf, false
     enable :sessions
 
     ##
