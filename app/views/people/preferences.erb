@@ -1,0 +1,40 @@
+<html>
+<head>
+  <title>Preferences</title>
+</head>
+<body>
+  <h1>Preferences</h1>
+
+  <% form_for @person, "/people/update_preferences/#{@person.id}" do |form|%>
+
+    <% if @person.type == "Instructor" %>
+
+      <%  field_set_tag do %>
+          <%= form.label :favourite_language %>
+          <%= form.text_field :favourite_language %>
+      <% end %>
+
+      <%  field_set_tag do %>
+          <%= form.label :years_experience %>
+          <%= form.text_field :years_experience %>
+      <% end %>
+
+      <% elsif @person.type == "Trainee" %>
+        <%  field_set_tag do %>
+            <%= form.label :favourite_meal %>
+            <%= form.text_field :favourite_meal %>
+        <% end %>
+
+        <%  field_set_tag do %>
+            <%= form.label :position_table_tennis_ladder %>
+            <%= form.text_field :position_table_tennis_ladder %>
+        <% end %>
+
+    <% end %>
+
+      <%= form.submit 'Save' %>
+
+  <% end %>
+
+</body>
+</html>

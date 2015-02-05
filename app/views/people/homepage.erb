@@ -4,14 +4,33 @@
 </head>
 <body>
   <h1>All People</h1>
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
   <table>
     <% @people.each do |person| %>
     <tr>
       <td><%= person.first_name %></td>
       <td><%= person.last_name %></td>
-      <td><%= person.role %></td>
+      <td><%= person.type %></td>
     </tr>
     <% end %>
   </table>
+
+  <h3> Filter by Surname <h4>
+
+  <% form_tag '/people/surname' do %>
+
+    <% field_set_tag do %>
+
+      <%= label_tag :surname %>
+        <%= text_field_tag :surname %>
+      <% end %>
+
+    <% field_set_tag do %>
+      <%= submit_tag 'Search' %>
+    <% end %>
+  <% end %>
+
 </body>
 </html>

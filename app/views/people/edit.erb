@@ -5,34 +5,41 @@
 <body>
   <h1>Edit User</h1>
 
-  <form method='POST' action="/person/update/<%=@person.id %>">
+  <% form_for @person, "/people/update/#{@person.id}" do |form|%>
 
-    <label for="first_name">First Name</label>
-    <input type="text" name="first_name" value="<%=@person.first_name %>">
-    <br>
-    <label for="last_name">Last Name</label>
-    <input type="text" name="last_name" value="<%=@person.last_name %>">
-    <br>
-    <label for="email">Email</label>
-    <input type="text" name="email" value="<%=@person.email %>">
-    <br>
-    <label for="phone">Phone Number</label>
-    <input type="text" name="phone" value="<%=@person.phone %>">
-    <br>
-    <label for="twitter">Twitter</label>
-    <input type="text" name="twitter" value="<%=@person.twitter %>">
-    <br>
-    <label for="role">Type: </label>
-    <br>
-    <input type="radio" name="role" value="Trainee">Trainee
-    <input type="radio" name="role" value="Instructor">Instructor
-    <br>
-    <input type="submit" value="Send">
-  </form>
+    <%  field_set_tag do %>
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name %>
+    <% end %>
 
-  <form method="POST" action="/person/delete/<%=@person.id %>">
-    <input type="submit" value="Delete">
-  </form>
+    <%  field_set_tag do %>
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name %>
+    <% end %>
+    <%  field_set_tag do %>
+        <%= form.label :email %>
+        <%= form.text_field :email %>
+    <% end %>
+    <%  field_set_tag do %>
+        <%= form.label :phone %>
+        <%= form.text_field :phone %>
+    <% end %>
+    <%  field_set_tag do %>
+        <%= form.label :twitter %>
+        <%= form.text_field :twitter %>
+    <% end %>
+    <%  field_set_tag do %>
+        <%= form.label :role %>
+        <%= form.select :role, :options => ['Trainee', 'Instructor'] %>
+        <a href="/people/edit_type_preferences/<%=@person.id%>" >Edit your Role </a>
+    <% end %>
+    <%= form.submit 'Save' %>
+  <% end %>
+
+
+  <% form_for @person, "/people/delete" do |form|%>
+   <%= form.submit 'Delete User' %>
+  <% end %>
 
 </body>
 </html>

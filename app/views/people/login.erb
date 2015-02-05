@@ -6,17 +6,25 @@
   <h1>Login Page</h1>
 
   <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
+  <%= flash[:notice] %>
   <% end %>
 
-  <form method='POST' action='/person/login'>
-    <label for="user_name">Username: </label>
-    <input type="text" name="user_name">
-    <br>
-    <label for="password">Password: </label>
-    <input type="text" name="password">
-    <input type="submit" value="Login">
-  </form>
+  <% form_tag '/people/login' do %>
+
+    <% field_set_tag do %>
+
+      <%= label_tag :user_name %>
+      <%= text_field_tag :user_name %>
+    <% end %>
+
+    <% field_set_tag do %>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    <% end %>
+    <% field_set_tag do %>
+      <%= submit_tag 'Login' %>
+    <% end %>
+  <% end %>
 
   <a href="/person/signup">Not a user? Sign up Here </a>
 </body>

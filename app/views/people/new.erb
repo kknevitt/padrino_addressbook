@@ -3,37 +3,36 @@
   <title>Create New</title>
 </head>
 <body>
-  <h1>Create Your Account</h1>
+  <h1>Create Your Accokunt</h1>
 
-    <%= form_tag "/people/create" do %>
+    <% form_for @person, "/people/create" do |form|%>
 
-        <%= field_set_tag do %>
-            <%= label_tag :first_name %>
-            <%= text_field_tag :first_name %>
+        <%  field_set_tag do %>
+            <%= form.label :first_name %>
+            <%= form.text_field :first_name %>
         <% end %>
 
-        <%= field_set_tag do %>
-            <%= label_tag :last_name %>
-            <%= text_field_tag :last_name %>
+        <%  field_set_tag do %>
+            <%= form.label :last_name %>
+            <%= form.text_field :last_name %>
         <% end %>
-        <%= field_set_tag do %>
-            <%= label_tag :email %>
-            <%= text_field_tag :email %>
+        <%  field_set_tag do %>
+            <%= form.label :email %>
+            <%= form.text_field :email %>
         <% end %>
-        <%= field_set_tag do %>
-            <%= label_tag :phone %>
-            <%= text_field_tag :phone %>
+        <%  field_set_tag do %>
+            <%= form.label :phone %>
+            <%= form.text_field :phone %>
         <% end %>
-        <%= field_set_tag do %>
-            <%= label_tag :twitter %>
-            <%= text_field_tag :twitter %>
+        <%  field_set_tag do %>
+            <%= form.label :twitter %>
+            <%= form.text_field :twitter %>
         <% end %>
-        <%= field_set_tag do %>
-            <%= label_tag :role %>
-            <%= radio_button_tag :role, :value => 'Trainee' %>
-            <%= radio_button_tag :role, :value => 'Instructor' %>
+        <%  field_set_tag do %>
+            <%= form.label :type %>
+            <%= form.select :type, :options => ['Trainee', 'Instructor'] %>
         <% end %>
-        <%= submit_tag 'Save' %>
+        <%= form.submit 'Save' %>
     <% end %>
 
 </body>
