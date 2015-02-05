@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <h1>Login Page</h1>
+
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+  <form method='POST' action='/person/login'>
+    <label for="user_name">Username: </label>
+    <input type="text" name="user_name">
+    <br>
+    <label for="password">Password: </label>
+    <input type="text" name="password">
+    <input type="submit" value="Login">
+  </form>
+
+  <a href="/person/signup">Not a user? Sign up Here </a>
+</body>
+</html>

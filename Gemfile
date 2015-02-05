@@ -28,6 +28,8 @@ gem 'padrino', '0.12.4'
 gem 'rack' , '<1.6'
 
 gem 'pry'
+
+gem 'sinatra-flash'
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
 
