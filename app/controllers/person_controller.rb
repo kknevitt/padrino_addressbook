@@ -40,21 +40,25 @@ AddressBook::App.controllers :people, :map=>"person" do
   end
 
   put :update, :map => ":id" do
+    binding.pry
     @person = Person.find(params[:id])
-    person = params[:trainee] || params[:instructor]
-    @person.update(person)
+    # person = params[:trainee] || params[:instructor]
+    @person.update(params[:person])
     redirect url_for(:people, :index)
   end
 
-  get :role_preferences, :map => ":id/role_preferences" do
-    render "people/preferences"
-  end
-
-  put :role_preferences, :map => ":id/" do
+  put :role_preferences, :map => ":id" do
     @person = Person.find(params[:id])
     @person.update(params[:person])
     redirect url_for(:people, :index)
   end
+
+
+  get :role_preferences, :map => ":id/role_preferences" do
+    @person = Person.find(params[:id])
+    render "people/preferences"
+  end
+
 
   post :surname do
     @people = Person.where('last_name LIKE ?', "#{params[:surname]}%");
