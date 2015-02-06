@@ -4,5 +4,22 @@
 </head>
 <body>
 
+  <% form_tag url_for(:people, :sign_up) do %>
+
+    <% field_set_tag do %>
+
+      <%= label_tag :user_name %>
+      <%= text_field_tag :user_name %>
+    <% end %>
+
+    <% field_set_tag do %>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    <% end %>
+    <% field_set_tag do %>
+      <%= submit_tag 'Sign Up' %>
+    <% end %>
+  <% end %>
+
 </body>
 </html>

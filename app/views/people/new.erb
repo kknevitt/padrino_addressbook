@@ -3,9 +3,9 @@
   <title>Create New</title>
 </head>
 <body>
-  <h1>Create Your Accokunt</h1>
+  <h1>Create Your Account</h1>
 
-    <% form_for @person, "/people/create" do |form|%>
+    <% form_for @person, url_for(:people, :create) do |form|%>
 
         <%  field_set_tag do %>
             <%= form.label :first_name %>

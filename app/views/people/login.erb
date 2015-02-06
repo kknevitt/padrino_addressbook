@@ -9,7 +9,7 @@
   <%= flash[:notice] %>
   <% end %>
 
-  <% form_tag '/people/login' do %>
+  <% form_tag url_for(:people, :login) do %>
 
     <% field_set_tag do %>
 
@@ -26,6 +26,6 @@
     <% end %>
   <% end %>
 
-  <a href="/person/signup">Not a user? Sign up Here </a>
+  <%= link_to "Sign Up Here", url_for(:people, :sign_up) %>
 </body>
 </html>

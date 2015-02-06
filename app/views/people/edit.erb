@@ -5,7 +5,7 @@
 <body>
   <h1>Edit User</h1>
 
-  <% form_for @person, "/people/update/#{@person.id}" do |form|%>
+  <% form_for @person,url_for(:people, :update, :id=>@person.id), :method => "put" do |form|%>
 
     <%  field_set_tag do %>
         <%= form.label :first_name %>
@@ -16,28 +16,33 @@
         <%= form.label :last_name %>
         <%= form.text_field :last_name %>
     <% end %>
+
     <%  field_set_tag do %>
         <%= form.label :email %>
         <%= form.text_field :email %>
     <% end %>
+
     <%  field_set_tag do %>
         <%= form.label :phone %>
         <%= form.text_field :phone %>
     <% end %>
+
     <%  field_set_tag do %>
         <%= form.label :twitter %>
         <%= form.text_field :twitter %>
     <% end %>
+
     <%  field_set_tag do %>
         <%= form.label :type %>
         <%= form.select :type, :options => ['Trainee', 'Instructor'] %>
-        <a href="/people/edit_type_preferences/<%=@person.id%>" >Edit your Role </a>
     <% end %>
+
     <%= form.submit 'Save' %>
+
   <% end %>
+    <%= link_to "Edit Your Role", url_for(:people, :role_preferences, :id=>@person.id) %>
 
-
-  <% form_for @person, "/people/delete" do |form|%>
+  <% form_for @person, url_for(:people, :delete, :id=>@person.id), :method => "delete" do |form|%>
    <%= form.submit 'Delete User' %>
   <% end %>
 
