@@ -3,7 +3,8 @@ require 'sinatra/flash'
 
 AddressBook::App.controllers :people do
 
-  before /.*\/[0-9]/ do
+ # edit path to use members only in protected paths
+  before /.*\/[0-9]+/ do
     unless session[:logged_in] || request.path.start_with?('/people/login') || request.path.start_with?('/people/signup')
       flash[:notice] = "Not logged in"
       redirect "/people/login"
@@ -76,10 +77,9 @@ AddressBook::App.controllers :people do
     #  person.last_name.start_with? params[:letter]
     # end
 
-    # refactor to put this functionality in Person model?
+    # refactor to put this functionality in Person model
     # letter = "#{:letter}"
-
-    @people = Person.where('last_name LIKE ?', "%#{params[:surname]}%");
+  @people = Person.where('last_name LIKE ?', "#{params[:surname]}%");
     render "people/search_results"
   end
 

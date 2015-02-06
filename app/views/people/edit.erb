@@ -29,8 +29,8 @@
         <%= form.text_field :twitter %>
     <% end %>
     <%  field_set_tag do %>
-        <%= form.label :role %>
-        <%= form.select :role, :options => ['Trainee', 'Instructor'] %>
+        <%= form.label :type %>
+        <%= form.select :type, :options => ['Trainee', 'Instructor'] %>
         <a href="/people/edit_type_preferences/<%=@person.id%>" >Edit your Role </a>
     <% end %>
     <%= form.submit 'Save' %>
