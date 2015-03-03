@@ -37,3 +37,5 @@ gem 'sinatra-flash'
 # %w(core support gen helpers cache mailer admin).each do |g|
 #   gem 'padrino-' + g, '0.12.4'
 # end
+
+gem 'database_cleaner'

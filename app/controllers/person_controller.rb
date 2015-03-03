@@ -4,15 +4,15 @@ require 'sinatra/flash'
 AddressBook::App.controllers :people, :map=>"person" do
 
  # edit path to use members only in protected paths
-  before /.*\/[0-9]+/ do
-    unless session[:logged_in] || request.path.start_with?('/people/login') || request.path.start_with?('/people/signup')
-      flash[:notice] = "Not logged in"
-      redirect url_for(:people, :login)
-    else
-      # need to filter members only for this to work.
-      # @person = Person.find(params[:id])
-    end
-  end
+  # need to filter members only for this to work.
+  # before /.*\/[0-9]+/ do
+  #   unless session[:logged_in] || request.path.start_with?('/people/login') || request.path.start_with?('/people/signup')
+  #     # flash[:notice] = "Not logged in"
+  #     # redirect url_for(:people, :login)
+  #   else
+  #     # @person = Person.find(params[:id])
+  #   end
+  # end
 
   get :index do
     @people = Person.all
@@ -20,6 +20,7 @@ AddressBook::App.controllers :people, :map=>"person" do
   end
 
   get :new do
+  @person = Person.new
   render "people/new"
   end
 

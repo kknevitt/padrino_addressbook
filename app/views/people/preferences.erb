@@ -7,6 +7,12 @@
 
   <% form_for @person, url_for(:people, :role_preferences, :id=> @person.id), :method => "put" do |form|%>
 
+<!--
+
+Refactor if statement to interpolate person.type into calling partial.
+Create partial for each type.
+
+/>
     <% if @person.type == "Instructor" %>
 
       <%  field_set_tag do %>

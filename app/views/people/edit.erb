@@ -5,7 +5,8 @@
 <body>
   <h1>Edit User</h1>
 
-  <% form_for(@person, as: :person, url: {controller: :people ,action: "update", params: {id: @person.id}}, method: "put") do |form|%>
+  <% form_for(@person, as: :person, url: {controller: :people ,action: "update",
+   params: {id: @person.id}}, method: "put") do |form|%>
 
     <%  field_set_tag do %>
         <%= form.label :first_name %>
